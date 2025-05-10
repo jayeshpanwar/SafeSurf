@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Safe Surf - Statistics</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body {
+  background: radial-gradient(circle at top left, #000 0%, #001a33 100%);
+  color: #9ec7f8;
+  font-family: 'Orbitron', sans-serif;
+  margin: 0;
+  padding: 40px 20px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2em;
+  text-shadow: 0 0 8px #095afb;
+  margin-bottom: 10px;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.card {
+  background: #000;
+  border: 1px solid #ffff01;
+  border-radius: 10px;
+  padding: 20px;
+  width: 280px;
+  box-shadow: 0 0 15px #266bff;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px rgba(38, 107, 255, 0.8);
+}
+
+.card h2 {
+  color: #bbc3ff;
+  border-bottom: 1px solid #09cece;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.card p {
+  font-size: 2em;
+  font-weight: bold;
+  color: #33FF00;
+}
+
+@keyframes flicker {
+  0% {
+    box-shadow: 0 0 20px rgb(74, 0, 84);
+  }
+  100% {
+    box-shadow: 0 0 30px rgb(54, 8, 97), 0 0 40px rgb(165, 4, 149);
+  }
+}
+
+.stats-button {
+  background-color: #6a0dad;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.stats-button:hover {
+  background-color: #540d6e;
+}
+
+  </style>
+</head>
+<body>
+  <h1>📊 Browsing Statistics</h1>
+  <div class="stats">
+    <div class="card">
+      <h2>Total URLs Scanned</h2>
+      <p id="total-scanned">15</p>
+    </div>
+    <div class="card">
+      <h2>Unique Domains</h2>
+      <p id="unique-domains">5</p>
+    </div>
+    <div class="card">
+      <h2>Malicious Sites</h2>
+      <p id="malicious-sites">2</p>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      chrome.storage.local.get(['stats'], ({ stats }) => {
+        if (!stats || !stats.threatsList) return;
+
+        const totalScanned = stats.threatsList.length;
+        const uniqueDomains = new Set(stats.threatsList.map(e => typeof e === 'string' ? e : e.domain)).size;
+        const maliciousCount = stats.threatsList.filter(e => e.score !== undefined && e.score < 50).length;
+
+        document.getElementById('total-scanned').textContent = totalScanned;
+        document.getElementById('unique-domains').textContent = uniqueDomains;
+        document.getElementById('malicious-sites').textContent = maliciousCount;
+      });
+    });
+  </script>
+</body>
+</html>

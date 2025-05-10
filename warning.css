@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body {
+  background: radial-gradient(circle, #001f3f, #000);
+  color: rgb(255, 41, 251);
+  font-family: 'Orbitron', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.warning-container {
+  background: rgba(0, 0, 0, 0.9);
+  padding: 40px 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgb(49, 42, 253);
+  text-align: center;
+  animation: flicker 4s infinite alternate;
+  max-width: 400px;
+}
+
+@keyframes flicker {
+  0% {
+    box-shadow: 0 0 20px rgb(182, 1, 254);
+  }
+  100% {
+    box-shadow: 0 0 30px #00f, 0 0 40px rgb(211, 210, 255);
+  }
+}
+
+h1 {
+  color: rgb(248, 8, 8);
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px rgb(255, 88, 88);
+}
+
+p {
+  margin-bottom: 30px;
+  font-size: 1em;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+button {
+  background: linear-gradient(45deg, rgb(255, 0, 242), rgb(34, 134, 235));
+  color: #000;
+  padding: 10px 20px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  animation: neonGlow 2s infinite alternate;
+  border-radius: 5px;
+  width: 45%;
+}
+
+@keyframes neonGlow {
+  0% {
+    box-shadow: 0 0 10px rgb(164, 0, 235);
+  }
+  100% {
+    box-shadow: 0 0 20px rgb(3, 80, 223), 0 0 30px #00f;
+  }
+}
+
+button:hover {
+  background: #e304fc;
+  transform: scale(1.05);
+}
+
+.glitch {
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(246, 124, 255);
+  text-shadow: 2px 2px rgb(60, 0, 255);
+  animation: glitchEffect 0.8s infinite alternate;
+  margin-bottom: 10px;
+}
+
+@keyframes glitchEffect {
+  0% {
+    text-shadow: 2px 2px #00f;
+  }
+  100% {
+    text-shadow: -2px -2px #0ff;
+  }
+}

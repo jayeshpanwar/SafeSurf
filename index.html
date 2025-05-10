@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberHawk - Home</title>
+    <style>
+        /* Global Styles */
+        body {
+            background-color: #121212;
+            color: #0099ff;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Hacker Matrix Background */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.abc.com/matrix-bg.jpg') center center no-repeat;
+            background-size: cover;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        /* SafeSurf Label */
+        .safesurf-label {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 2em;
+            color: #33FF00;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.8), 0 0 20px rgba(0, 255, 0, 0.6);
+            letter-spacing: 2px;
+        }
+
+        /* Title and Headings */
+        h1, h2 {
+            font-size: 2.5em;
+            text-shadow: 0 0 10px rgba(0, 102, 255, 0.8), 0 0 20px rgba(0, 255, 0, 0.6);
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #0095ff;
+            margin: 10px 0;
+        }
+
+        /* Navigation Links */
+        .nav-links a {
+            color: #33FF00;
+            text-decoration: none;
+            margin: 15px 30px;
+            font-size: 1.5em;
+            display: inline-block;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #00FFCC;
+        }
+
+        /* Team Section */
+        .team-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .team-card {
+            background-color: #1A1A1A;
+            border: 2px solid #008cff;
+            padding: 20px;
+            width: 220px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 60, 255, 0.6);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px rgb(0, 106, 255);
+        }
+
+        .team-card h3 {
+            font-size: 1.5em;
+        }
+
+        .team-card p {
+            font-size: 1.1em;
+        }
+
+        /* Back Link */
+        .back-link {
+            color: #451cfa;
+            text-decoration: none;
+            font-size: 1.5em;
+            margin-top: 30px;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: #0055ff;
+        }
+
+        /* Dashboard Styles */
+        .dashboard-container {
+            max-width: 1000px;
+            margin: auto;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 25px #7c3cf3;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2em;
+         
+            margin-bottom: 10px;
+        }
+
+        .dashboard-subtitle {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #88ffff;
+            font-size: 1.1em;
+        }
+
+        .dashboard-grid {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .dashboard-card {
+            flex: 1;
+            min-width: 280px;
+            background: #000000;
+            border: 1px solid #ffff01;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 0 15px #266bff;
+        }
+
+        .dashboard-card h2 {
+            text-align: center;
+            color: #bbc3ff;
+            border-bottom: 1px solid #09cece;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+            max-height: 250px;
+            overflow-y: auto;
+        }
+
+        li {
+            background: rgba(0, 255, 204, 0.05);
+            border: 1px solid #98a000;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+            box-shadow: 0 0 5px #e4ebf9;
+        }
+
+        .stats-button {
+            background-color: #6a0dad;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .stats-button:hover {
+            background-color: #540d6e;
+        }
+    </style>
+</head>
+<body>
+    <!-- SafeSurf label in the top-left corner -->
+    <div class="safesurf-label">SafeSurf</div>
+
+    <div class="container">
+        <h1> Welcome to SafeSurf</h1>
+        <p>Your ultimate cybersecurity companion for safe browsing.</p>
+
+        <div class="nav-links">
+            <a href="dashboard.html">📊 Dashboard</a>
+        </div>
+
+        <h2> About CyberHawk</h2>
+        <p class="mission"><strong>Our Mission:</strong> To provide a safe and secure browsing experience by detecting and warning users about potential threats.</p>
+
+        <h2>👨‍💻 Meet Our Team</h2>
+        <div class="team-container">
+            <div class="team-card">
+                <h3>Harshit Sharma</h3>
+                <p>Lead Developer</p>
+            </div>
+            <div class="team-card">
+                <h3>Jayditya Sawai</h3>
+                <p>Cybersecurity Analyst</p>
+            </div>
+            <div class="team-card">
+                <h3>Jayesh Panwar</h3>
+               <p>Backend Engineer</p>
+            </div>
+            <div class="team-card">
+                <h3>Naman Rege</h3>
+                <p>UI/UX Designer</p>
+            </div>
+        </div>
+
+        <br>
+    </div>
+</body>
+</html>
